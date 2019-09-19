@@ -1,0 +1,15 @@
+name: "Issue Maker"
+description: "creates an Issue"
+author: "mattdavis0351"
+
+inputs:
+  issueTitle:
+    description: "Issues will be created with this title"
+    default: "created by the Issue Maker Action"
+  apiToken:
+    description: "Token used to authenticate with the API"
+    default: "failed to supply token... things will break... enjoy"
+
+runs:
+  using: "node12"
+  main: "lib/main.js"

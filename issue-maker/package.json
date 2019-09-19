@@ -1,0 +1,25 @@
+{
+	"name": "issue-maker",
+	"version": "1.0.0",
+	"description": "GitHub Action to automate issue creation",
+	"main": "main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "github.com/mattdavis0351/actions/issue-maker"
+	},
+	"keywords": [ "issues", "github", "GitHub", "Actions" ],
+	"author": "mattdavis0351",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^12.7.5",
+		"typescript": "^3.6.3"
+	},
+	"dependencies": {
+		"@actions/core": "^1.1.1",
+		"@actions/github": "^1.1.0"
+	}
+}
