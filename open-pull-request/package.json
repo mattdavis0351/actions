@@ -1,0 +1,33 @@
+{
+	"name": "open-pull-request",
+	"version": "1.0.0",
+	"description": "GitHub Action to open Pull Requests",
+	"main": "main.js",
+	"directories": {
+		"lib": "lib"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "www.github.com/mattdavis0351/actions/open-pull-request"
+	},
+	"keywords": [
+		"pr",
+		"pull",
+		"request",
+		"pull-request"
+	],
+	"author": "mattdavis0351",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^12.7.5",
+		"typescript": "^3.6.3"
+	},
+	"dependencies": {
+		"@actions/core": "^1.1.1",
+		"@actions/github": "^1.1.0"
+	}
+}

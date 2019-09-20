@@ -1,0 +1,27 @@
+name: "open-pull-request"
+description: "This Action uses octokit to open a pull request for a given branch"
+author: "mattdavis0351"
+
+inputs:
+  apiToken:
+    description: "API access token for user or organization to authenticate with"
+    default: "no token was supplied... now you know why things broke!"
+  headBranch:
+    description: "Name of the source branch containing the changes"
+    default: "master"
+    required: true
+  baseBranch:
+    description: "Name of the target branch to receive the changes"
+    default: "master"
+    required: true
+  pullTitle:
+    description: "Title of pull request"
+    default: "PR created by Action"
+    required: true
+  pullBody:
+    description: "Content of Pull Request body"
+    default: "I'm an Action and I created a PR"
+
+runs:
+  using: "node12"
+  main: "lib/main.js"
