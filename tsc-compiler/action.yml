@@ -1,0 +1,6 @@
+name: "tsc compiler"
+description: "attempt to compile ts to js"
+
+runs:
+  using: "node12"
+  main: "lib/main.js"
