@@ -35,7 +35,7 @@ function run() {
             // 	head: headBranch
             // });
             // core.debug(JSON.stringify(newPull));
-            core.debug(JSON.stringify(context));
+            core.debug(JSON.stringify(context.ref));
         }
         catch (error) {
             core.debug(error.message);
