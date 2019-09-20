@@ -8,7 +8,7 @@ inputs:
     default: "no token was supplied... now you know why things broke!"
   headBranch:
     description: "Name of the source branch containing the changes"
-    default: "master"
+    default: ${{ github.ref }}
     required: true
   baseBranch:
     description: "Name of the target branch to receive the changes"
