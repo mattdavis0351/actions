@@ -27,15 +27,15 @@ function run() {
         const octokit = new github.GitHub(myApiToken);
         const context = github.context;
         try {
-            // const newPull = await octokit.pulls.create({
-            // 	owner: context.repo.owner,
-            // 	repo: context.repo.repo,
-            // 	title: pullTitle,
-            // 	base: baseBranch,
-            // 	head: headBranch
-            // });
+            const newPull = yield octokit.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: pullTitle,
+                base: baseBranch,
+                head: headBranch
+            });
             // core.debug(JSON.stringify(newPull));
-            core.debug(JSON.stringify(headBranch));
+            // core.debug(JSON.stringify(headBranch));
         }
         catch (error) {
             core.debug(error.message);
