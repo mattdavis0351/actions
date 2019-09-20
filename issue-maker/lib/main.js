@@ -22,6 +22,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const issueTitle = core.getInput('issueTitle');
+            const issueBody = core.getInput('issueBody');
             const myApiToken = core.getInput('apiToken');
             const octokit = new github.GitHub(myApiToken);
             const context = github.context;
@@ -30,7 +31,7 @@ function run() {
                 repo: context.repo.repo,
                 title: issueTitle
             });
-            core.debug(issueTitle);
+            core.debug(JSON.stringify(newIssue));
         }
         catch (error) {
             core.debug(error.message);

@@ -9,6 +9,9 @@ inputs:
   apiToken:
     description: "Token used to authenticate with the API"
     default: "failed to supply token... things will break... enjoy"
+  issueBody:
+    description: "This shows as the issue body"
+    default: "# Issue Created By issue-maker Action"
 
 runs:
   using: "node12"
