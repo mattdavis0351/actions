@@ -28,17 +28,20 @@ function run() {
         const octokit = new github.GitHub(myApiToken);
         const context = github.context;
         try {
-            if (context.payload.created === true) {
-                console.log('branch was created');
+            if (context.payload.ref !== '/ref/heads/master') {
+                // console.log('branch was created');
+                const newPull = yield octokit.pulls.create({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    title: pullTitle,
+                    base: baseBranch,
+                    head: headBranch,
+                    body: JSON.stringify(context.payload)
+                });
             }
-            const newPull = yield octokit.pulls.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: pullTitle,
-                base: baseBranch,
-                head: headBranch,
-                body: JSON.stringify(context.payload)
-            });
+            else {
+                console.log('trying to open PR from master to master');
+            }
             // core.debug(JSON.stringify(newPull));
             // core.debug(JSON.stringify(headBranch));
         }
