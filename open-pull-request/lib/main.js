@@ -28,6 +28,9 @@ function run() {
         const octokit = new github.GitHub(myApiToken);
         const context = github.context;
         try {
+            if (context.payload.created === true) {
+                console.log('branch was created');
+            }
             const newPull = yield octokit.pulls.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,

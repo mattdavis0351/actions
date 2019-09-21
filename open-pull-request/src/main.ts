@@ -11,6 +11,9 @@ async function run() {
 	const context = github.context;
 
 	try {
+		if (context.payload.created === true) {
+			console.log('branch was created');
+		}
 		const newPull = await octokit.pulls.create({
 			owner: context.repo.owner,
 			repo: context.repo.repo,
