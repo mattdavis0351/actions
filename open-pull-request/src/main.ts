@@ -9,11 +9,11 @@ async function run() {
 	const headBranch = core.getInput('headBranch');
 	const octokit = new github.GitHub(myApiToken);
 	const context = github.context;
-	const ref = await JSON.stringify(context.payload.ref);
+	const ref = JSON.stringify(context.payload.ref);
 
 	try {
-		if (ref !== 'refs/heads/master') {
-			console.log(`ref is: ${ref}`);
+		if (headBranch !== baseBranch) {
+			console.log(`head is: ${headBranch}`);
 			const newPull = await octokit.pulls.create({
 				owner: context.repo.owner,
 				repo: context.repo.repo,
@@ -23,7 +23,7 @@ async function run() {
 				body: JSON.stringify(context.payload)
 			});
 		} else {
-			console.log('trying to open PR from master to master');
+			console.log(`trying to open PR from: ${baseBranch} to ${baseBranch}`);
 		}
 
 		// core.debug(JSON.stringify(newPull));
