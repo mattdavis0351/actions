@@ -27,9 +27,10 @@ function run() {
         const headBranch = core.getInput('headBranch');
         const octokit = new github.GitHub(myApiToken);
         const context = github.context;
+        const ref = JSON.stringify(context.payload.ref);
         try {
-            if (context.payload.ref !== '/refs/heads/master') {
-                // console.log('branch was created');
+            if (context.payload.ref !== ref) {
+                console.log(`ref is: ${ref}`);
                 const newPull = yield octokit.pulls.create({
                     owner: context.repo.owner,
                     repo: context.repo.repo,
