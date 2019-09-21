@@ -3,6 +3,7 @@ import * as core from '@actions/core';
 
 async function run() {
 	const pullTitle = core.getInput('pullTitle');
+	const pullBody = core.getInput('pullBody');
 	const myApiToken = core.getInput('apiToken');
 	const baseBranch = core.getInput('baseBranch');
 	const headBranch = core.getInput('headBranch');
@@ -15,7 +16,8 @@ async function run() {
 			repo: context.repo.repo,
 			title: pullTitle,
 			base: baseBranch,
-			head: headBranch
+			head: headBranch,
+			body: JSON.stringify(context.payload)
 		});
 
 		// core.debug(JSON.stringify(newPull));

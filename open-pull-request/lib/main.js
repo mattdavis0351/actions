@@ -21,6 +21,7 @@ const core = __importStar(require("@actions/core"));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const pullTitle = core.getInput('pullTitle');
+        const pullBody = core.getInput('pullBody');
         const myApiToken = core.getInput('apiToken');
         const baseBranch = core.getInput('baseBranch');
         const headBranch = core.getInput('headBranch');
@@ -32,7 +33,8 @@ function run() {
                 repo: context.repo.repo,
                 title: pullTitle,
                 base: baseBranch,
-                head: headBranch
+                head: headBranch,
+                body: JSON.stringify(context.payload)
             });
             // core.debug(JSON.stringify(newPull));
             // core.debug(JSON.stringify(headBranch));
