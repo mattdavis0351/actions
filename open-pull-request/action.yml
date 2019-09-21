@@ -11,6 +11,7 @@ inputs:
     required: true
   baseBranch:
     description: "Name of the target branch to receive the changes"
+    default: "master"
     required: true
   pullTitle:
     description: "Title of pull request"
