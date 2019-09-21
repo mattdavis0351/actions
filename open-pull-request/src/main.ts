@@ -9,10 +9,10 @@ async function run() {
 	const headBranch = core.getInput('headBranch');
 	const octokit = new github.GitHub(myApiToken);
 	const context = github.context;
-	const ref = JSON.stringify(context.payload.ref);
+	const ref = await JSON.stringify(context.payload.ref);
 
 	try {
-		if (context.payload.ref !== ref) {
+		if (ref !== 'refs/heads/master') {
 			console.log(`ref is: ${ref}`);
 			const newPull = await octokit.pulls.create({
 				owner: context.repo.owner,
