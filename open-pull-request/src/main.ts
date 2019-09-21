@@ -17,7 +17,7 @@ async function run() {
 			title: pullTitle,
 			base: baseBranch,
 			head: headBranch,
-			body: JSON.stringify(pullBody)
+			body: JSON.stringify(context.payload)
 		});
 
 		// core.debug(JSON.stringify(newPull));
