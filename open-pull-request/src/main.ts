@@ -11,7 +11,7 @@ async function run() {
 	const context = github.context;
 
 	try {
-		if (context.payload.ref !== '/ref/heads/master') {
+		if (context.payload.refs !== '/ref/heads/master') {
 			// console.log('branch was created');
 			const newPull = await octokit.pulls.create({
 				owner: context.repo.owner,
