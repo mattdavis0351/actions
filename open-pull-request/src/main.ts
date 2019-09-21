@@ -12,7 +12,7 @@ async function run() {
 	const ref = JSON.stringify(context.payload.ref);
 
 	try {
-		if (headBranch !== baseBranch) {
+		if (headBranch !== 'refs/heads/' + baseBranch) {
 			console.log(`head is: ${headBranch}`);
 			const newPull = await octokit.pulls.create({
 				owner: context.repo.owner,
