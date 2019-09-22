@@ -18,9 +18,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const github = __importStar(require("@actions/github"));
 const core = __importStar(require("@actions/core"));
+function createTitle(metadata) {
+    let title;
+    let today = new Date();
+    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    if (metadata === 'default') {
+        title = `Created by the Open-Pull-Request Action on [${date}]`;
+        return title;
+    }
+    else {
+        return `${metadata} [${date}]`;
+    }
+}
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
-        const pullTitle = core.getInput('pullTitle');
+        const pullTitle = createTitle(core.getInput('pullTitle'));
         const pullBody = core.getInput('pullBody');
         const myApiToken = core.getInput('apiToken');
         const baseBranch = core.getInput('baseBranch');
