@@ -15,7 +15,7 @@ inputs:
     required: true
   pullTitle:
     description: "Title of pull request"
-    default: "PR created by Action"
+    # default: "PR created by Action"
     required: true
   pullBody:
     description: "Content of Pull Request body"
