@@ -18,3 +18,8 @@ Each Action is located in a sub-directory in this repository.  Documentation for
 - [issue-maker]() :wrench: 
 - [open-pull-request]() :clapper:
 - [tsc-compiler]() :wrench: 
+
+## Helpful Links For Consuming These Actions
+
+- How to create an [API access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)
+- How to add repository [secrets](https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables)
