@@ -43,6 +43,7 @@ async function run() {
 			}
 		}
 	} catch (error) {
+		console.log(`error: ${error.message}`);
 		core.debug(`error: ${error.message}`);
 	}
 }
