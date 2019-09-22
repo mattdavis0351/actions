@@ -31,7 +31,8 @@ async function run() {
 			}
 		}
 	} catch (error) {
-		core.debug(error.message);
+		core.debug(`title: ${pullTitle}`);
+		core.debug(`error: ${error.message}`);
 	}
 }
 
