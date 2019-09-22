@@ -1,5 +1,5 @@
 name: "open-pull-request"
-description: "This Action uses octokit to open a pull request for a given branch"
+description: "This Action uses octokit to open a pull request from a workflow"
 author: "mattdavis0351"
 
 inputs:
