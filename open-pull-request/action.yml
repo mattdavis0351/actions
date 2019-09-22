@@ -16,7 +16,7 @@ inputs:
   pullTitle:
     description: "Title of pull request"
     # default: "PR created by Action"
-    # default: ${{Date.toString()}}
+    default: ${{Date.toString()}}
     required: true
   pullBody:
     description: "Content of Pull Request body"
