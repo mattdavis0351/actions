@@ -16,7 +16,7 @@ A GitHub Action for openening pull requests.
 |`pullTitle`|Title of the pull request.  Includes a timestamp in the form of `[year-month-day]`.|default|:white_check_mark:|
 |`pullBody`|Contents of the pull request body.|This pull request was created by an Action.||
 
-See the [action.yml]() for further information about this Action.
+See the [action.yml](https://github.com/mattdavis0351/actions/blob/master/open-pull-request/action.yml) for further information about this Action.
 
 ### Examples:
 
