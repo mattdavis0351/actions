@@ -4,22 +4,23 @@ author: "mattdavis0351"
 
 inputs:
   apiToken:
-    description: "API access token for user or organization to authenticate with"
+    description: "Access token allowing authentication to the GitHub API. Should be passed as a secret using ${{secrets.<some repo secret>}}."
     default: "no token was supplied... now you know why things broke!"
+    required: true
   headBranch:
-    description: "Name of the source branch containing the changes"
+    description: "Name of the branch containing the current changes. The source of your pull request. It is reccommended to use ${{github.ref}} in your workflow for this value."
     required: true
   baseBranch:
-    description: "Name of the target branch to receive the changes"
+    description: "Name of the branch to receive changes. The destination of your pull request."
     default: "master"
     required: true
   pullTitle:
-    description: "Title of pull request"
+    description: "Title of the pull request. Includes a timestamp in the form of [year-month-day]."
     default: "default"
     required: true
   pullBody:
-    description: "Content of Pull Request body"
-    default: "I'm an Action and I created a PR"
+    description: "Contents of the pull request body."
+    default: "This pull request was created by an Action."
 
 runs:
   using: "node12"
