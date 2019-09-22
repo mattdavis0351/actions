@@ -43,8 +43,6 @@ async function run() {
 			}
 		}
 	} catch (error) {
-		console.log(pullTitle);
-		core.debug(`title: ${typeof pullTitle}`);
 		core.debug(`error: ${error.message}`);
 	}
 }
