@@ -47,9 +47,10 @@ function createBody(metadata) {
             // await exec.exec(`cat ./${metadata}`);
             let data;
             fs.readFile(`./${metadata}`, 'utf8', (err, contents) => (data = contents));
+            const file = fs.readFileSync(`./${metadata}`, 'utf8');
             // body = data;
             console.log('made it into .md loop');
-            console.log(data);
+            console.log(file);
         }
         return body;
     });
