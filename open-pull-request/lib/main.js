@@ -18,6 +18,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const github = __importStar(require("@actions/github"));
 const core = __importStar(require("@actions/core"));
+const exec = __importStar(require("@actions/exec"));
 function createTitle(metadata) {
     let title;
     let today = new Date();
@@ -30,10 +31,27 @@ function createTitle(metadata) {
         return `${metadata} [${date}]`;
     }
 }
+function createBody(metadata) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let body = metadata;
+        if (metadata === 'default') {
+            body =
+                "This PR was created by the Open-Pull-Request Action and since you didn't specify a `body` to be placed here, this is the message you get :smile:";
+        }
+        else if (metadata.endsWith('.md')) {
+            // read the contents of .md
+            // convert to string if not already
+            // place in body
+            yield exec.exec('ls .');
+            yield exec.exec(`cat ${metadata}`);
+        }
+        return body;
+    });
+}
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         const pullTitle = createTitle(core.getInput('pullTitle'));
-        const pullBody = core.getInput('pullBody');
+        const pullBody = yield createBody(core.getInput('pullBody'));
         const myApiToken = core.getInput('apiToken');
         const baseBranch = core.getInput('baseBranch');
         const headBranch = core.getInput('headBranch');

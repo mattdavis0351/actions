@@ -20,7 +20,7 @@ inputs:
     required: true
   pullBody:
     description: "Contents of the pull request body."
-    default: "This pull request was created by an Action."
+    default: "default"
 
 runs:
   using: "node12"
