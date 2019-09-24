@@ -34,6 +34,7 @@ function createTitle(metadata) {
 function createBody(metadata) {
     return __awaiter(this, void 0, void 0, function* () {
         let body = metadata;
+        console.log(metadata);
         if (metadata === 'default') {
             body =
                 "This PR was created by the Open-Pull-Request Action and since you didn't specify a `body` to be placed here, this is the message you get :smile:";
@@ -44,7 +45,9 @@ function createBody(metadata) {
             // place in body
             // await exec.exec('ls .');
             // await exec.exec(`cat ./${metadata}`);
-            fs.readFile(`./${metadata}`, 'utf8', (err, contents) => (body = contents));
+            const data = fs.readFile(`./${metadata}`, 'utf8', (err, contents) => contents);
+            body = data;
+            console.log(body);
         }
         return body;
     });

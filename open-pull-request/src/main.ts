@@ -17,6 +17,7 @@ function createTitle(metadata: string): string {
 
 async function createBody(metadata: string): Promise<string> {
 	let body: string = metadata;
+	console.log(metadata);
 
 	if (metadata === 'default') {
 		body =
@@ -27,7 +28,9 @@ async function createBody(metadata: string): Promise<string> {
 		// place in body
 		// await exec.exec('ls .');
 		// await exec.exec(`cat ./${metadata}`);
-		fs.readFile(`./${metadata}`, 'utf8', (err, contents): string => (body = contents));
+		const data: any = fs.readFile(`./${metadata}`, 'utf8', (err, contents): string => contents);
+		body = data;
+		console.log(body);
 	}
 
 	return body;
