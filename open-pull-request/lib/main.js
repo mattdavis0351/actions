@@ -18,7 +18,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const github = __importStar(require("@actions/github"));
 const core = __importStar(require("@actions/core"));
-const exec = __importStar(require("@actions/exec"));
+const fs = __importStar(require("fs"));
 function createTitle(metadata) {
     let title;
     let today = new Date();
@@ -42,8 +42,9 @@ function createBody(metadata) {
             // read the contents of .md
             // convert to string if not already
             // place in body
-            yield exec.exec('ls .');
-            yield exec.exec(`cat ./${metadata}`);
+            // await exec.exec('ls .');
+            // await exec.exec(`cat ./${metadata}`);
+            fs.readFile(`./${metadata}`, 'utf8', (err, contents) => (body = contents));
         }
         return body;
     });

@@ -1,6 +1,7 @@
 import * as github from '@actions/github';
 import * as core from '@actions/core';
 import * as exec from '@actions/exec';
+import * as fs from 'fs';
 
 function createTitle(metadata: string): string {
 	let title: string;
@@ -24,8 +25,9 @@ async function createBody(metadata: string): Promise<string> {
 		// read the contents of .md
 		// convert to string if not already
 		// place in body
-		await exec.exec('ls .');
-		await exec.exec(`cat ./${metadata}`);
+		// await exec.exec('ls .');
+		// await exec.exec(`cat ./${metadata}`);
+		fs.readFile(`./${metadata}`, 'utf8', (err, contents): string => (body = contents));
 	}
 
 	return body;
