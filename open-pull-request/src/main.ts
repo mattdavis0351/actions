@@ -28,8 +28,10 @@ async function createBody(metadata: string): Promise<string> {
 		// place in body
 		// await exec.exec('ls .');
 		// await exec.exec(`cat ./${metadata}`);
-		const data: any = fs.readFile(`./${metadata}`, 'utf8', (err, contents): string => contents);
-		body = data;
+
+		let data: any;
+		fs.readFile(`./${metadata}`, 'utf8', (err, contents): string => (data = contents));
+		// body = data;
 		console.log('made it into .md loop');
 		console.log(data);
 	}
