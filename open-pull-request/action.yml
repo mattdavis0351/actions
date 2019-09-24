@@ -4,7 +4,7 @@ author: "mattdavis0351"
 
 inputs:
   apiToken:
-    description: "Access token allowing authentication to the GitHub API. Should be passed as a secret."
+    description: "Access token allowing authentication to the GitHub API. Should be passed as a secret using secrets.some-repo-secret."
     default: "no token was supplied... now you know why things broke!"
     required: true
   headBranch:
@@ -20,7 +20,7 @@ inputs:
     required: true
   pullBody:
     description: "Contents of the pull request body."
-    default: "This pull request was created by an Action."
+    default: "default"
 
 runs:
   using: "node12"

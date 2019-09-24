@@ -1,5 +1,7 @@
 import * as github from '@actions/github';
 import * as core from '@actions/core';
+import * as exec from '@actions/exec';
+import * as fs from 'fs';
 
 function createTitle(metadata: string): string {
 	let title: string;
@@ -13,9 +15,27 @@ function createTitle(metadata: string): string {
 	}
 }
 
+async function createBody(metadata: string): Promise<string> {
+	let body: string = metadata;
+
+	try {
+		if (metadata === 'default') {
+			body =
+				"This PR was created by the Open-Pull-Request Action and since you didn't specify a `body` to be placed here, this is the message you get :smile:";
+		} else if (metadata.endsWith('.md')) {
+			const bodyTemplate = fs.readFileSync(`./${metadata}`, 'utf8');
+			body = bodyTemplate;
+		}
+	} catch (error) {
+		console.log(error.message);
+		core.debug(error.message);
+	}
+	return body;
+}
+
 async function run() {
 	const pullTitle = createTitle(core.getInput('pullTitle'));
-	const pullBody = core.getInput('pullBody');
+	const pullBody = await createBody(core.getInput('pullBody'));
 	const myApiToken = core.getInput('apiToken');
 	const baseBranch = core.getInput('baseBranch');
 	const headBranch = core.getInput('headBranch');
