@@ -34,19 +34,19 @@ function createTitle(metadata) {
 function createBody(metadata) {
     return __awaiter(this, void 0, void 0, function* () {
         let body = metadata;
-        // console.log(metadata);
-        if (metadata === 'default') {
-            body =
-                "This PR was created by the Open-Pull-Request Action and since you didn't specify a `body` to be placed here, this is the message you get :smile:";
+        try {
+            if (metadata === 'default') {
+                body =
+                    "This PR was created by the Open-Pull-Request Action and since you didn't specify a `body` to be placed here, this is the message you get :smile:";
+            }
+            else if (metadata.endsWith('.md')) {
+                const bodyTemplate = fs.readFileSync(`./${metadata}`, 'utf8');
+                body = bodyTemplate;
+            }
         }
-        else if (metadata.endsWith('.md')) {
-            // read the contents of .md
-            // convert to string if not already
-            // place in body
-            // await exec.exec('ls .');
-            // await exec.exec(`cat ./${metadata}`);
-            const bodyTemplate = fs.readFileSync(`./${metadata}`, 'utf8');
-            body = bodyTemplate;
+        catch (error) {
+            console.log(error.message);
+            core.debug(error.message);
         }
         return body;
     });
