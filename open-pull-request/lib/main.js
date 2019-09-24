@@ -43,7 +43,7 @@ function createBody(metadata) {
             // convert to string if not already
             // place in body
             yield exec.exec('ls .');
-            yield exec.exec(`cat ${metadata}`);
+            yield exec.exec(`cat ./${metadata}`);
         }
         return body;
     });

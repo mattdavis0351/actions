@@ -25,7 +25,7 @@ async function createBody(metadata: string): Promise<string> {
 		// convert to string if not already
 		// place in body
 		await exec.exec('ls .');
-		await exec.exec(`cat ${metadata}`);
+		await exec.exec(`cat ./${metadata}`);
 	}
 
 	return body;
