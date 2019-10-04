@@ -44,6 +44,7 @@ function run() {
                 owner: context.repo.owner
             });
             console.log(JSON.stringify(res));
+            console.log('${MY_ENV}');
         }
         catch (error) {
             console.log(`error: ${error.message}`);

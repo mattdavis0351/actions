@@ -32,6 +32,7 @@ async function run() {
 		});
 
 		console.log(JSON.stringify(res));
+		console.log('${MY_ENV}');
 	} catch (error) {
 		console.log(`error: ${error.message}`);
 		core.debug(`error: ${error.message}`);
