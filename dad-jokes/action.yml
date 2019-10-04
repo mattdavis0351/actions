@@ -1,0 +1,18 @@
+name: "dad=jokes"
+description: "respondes to issue or pr comment with a random dad joke"
+author: "mattdavis0351"
+
+inputs:
+  issueTitle:
+    description: "Issues will be created with this title"
+    default: "created by the Issue Maker Action"
+  apiToken:
+    description: "Token used to authenticate with the API"
+    default: ${{ secrets.GITHUB_TOKEN }}
+  issueBody:
+    description: "This shows as the issue body"
+    default: "# Issue Created By issue-maker Action"
+
+runs:
+  using: "node12"
+  main: "lib/main.js"

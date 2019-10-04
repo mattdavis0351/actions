@@ -1,0 +1,23 @@
+{
+	"name": "dad-jokes",
+	"version": "1.0.0",
+	"description": "GitHub Action to respond to a comment with a random dad joke",
+	"main": "main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc"
+	},
+	"author": "mattdavis0351",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^12.7.11",
+		"@types/request-promise": "^4.1.44",
+		"typescript": "^3.6.3"
+	},
+	"dependencies": {
+		"@actions/core": "^1.1.3",
+		"@actions/github": "^1.1.0",
+		"request": "^2.88.0",
+		"request-promise": "^4.2.4"
+	}
+}
