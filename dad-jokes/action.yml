@@ -8,7 +8,7 @@ inputs:
     default: "created by the Issue Maker Action"
   apiToken:
     description: "Token used to authenticate with the API"
-    default: ${{ secrets.GITHUB_TOKEN }}
+    required: true
   issueBody:
     description: "This shows as the issue body"
     default: "# Issue Created By issue-maker Action"
