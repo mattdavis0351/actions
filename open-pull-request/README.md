@@ -10,7 +10,7 @@ A GitHub Action for openening pull requests.
 
 |Parameter|Description|Default Value|Required|
 |---|---|---|:---:|
-|`apiToken`|Access token allowing authentication to the GitHub API.  Should be passed as a secret using `${{secrets.<some repo secret>}}`.|No token was supplied... now you know why things broke!|:white_check_mark:|
+|`apiToken`|Access token allowing authentication to the GitHub API.  `GITHUB_TOKEN` is recommended.|No token was supplied... now you know why things broke!|:white_check_mark:|
 |`headBranch`|Name of the branch containing the current changes.  The source of your pull request.  It is reccommended to use `${{github.ref}}` in your workflow for this value.||:white_check_mark:|
 |`baseBranch`|Name of the branch to receive changes.  The destination of your pull request.|master|:white_check_mark:|
 |`pullTitle`|Title of the pull request.  Includes a timestamp in the form of `[year-month-day]`.|Created by the Open-Pull-Request Action on[todays-date]|:white_check_mark:|
@@ -30,7 +30,7 @@ jobs:
       - uses: mattdavis0351/actions/open-pull-request@master
         with:
           headBranch: "my-current-branch"
-          apiToken: ${{ secrets.MY_API_TOKEN }}        
+          apiToken: ${{ secrets.GITHUB_TOKEN }}        
 ```
 
 **Combined with other Actions**
@@ -55,7 +55,7 @@ jobs:
         uses: mattdavis0351/actions/open-pull-request@master
         with:
           headBranch: "my-current-branch"
-          apiToken: ${{ secrets.MY_API_TOKEN }}
+          apiToken: ${{ secrets.GITHUB_TOKEN }}
           
 ```
 
@@ -65,7 +65,7 @@ jobs:
   with:
     headBranch: ${{github.ref}}
     baseBranch: master
-    apiToken: ${{ secrets.MY_API_TOKEN }}
+    apiToken: ${{ secrets.GITHUB_TOKEN }}
     pullTitle: "I really need to merge these changes"
     pullBody: "I will show up in the body of the pull request"
 ```
@@ -76,7 +76,7 @@ jobs:
   with:
     headBranch: ${{github.ref}}
     baseBranch: master
-    apiToken: ${{ secrets.MY_API_TOKEN }}
+    apiToken: ${{ secrets.GITHUB_TOKEN }}
     pullTitle: "I really need to merge these changes"
     pullBody: folder1/folder2/file.md 
 ```
@@ -87,7 +87,7 @@ jobs:
   with:
     headBranch: ${{github.ref}}
     baseBranch: master
-    apiToken: ${{ secrets.MY_API_TOKEN }}
+    apiToken: ${{ secrets.GITHUB_TOKEN }}
     pullTitle: "I really need to merge these changes"
     pullBody: .github/pr-templates/file.md 
 ```
