@@ -44,7 +44,8 @@ function run() {
                 owner: context.repo.owner
             });
             console.log(JSON.stringify(res));
-            console.log('${MY_ENV}');
+            const myVar = '${MY_ENV}';
+            core.exportVariable('MY_VAR', 'bread crumbs following you are');
         }
         catch (error) {
             console.log(`error: ${error.message}`);
