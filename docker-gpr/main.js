@@ -9,7 +9,9 @@ async function run() {
     const githubRepo = process.env.GITHUB_REPOSITORY;
     const tag = process.env.GITHUB_SHA;
 
-    await exec.exec(`docker login -u ${username} -p ${token}`);
+    await exec.exec(
+      `docker login docker.pkg.github.com -u ${username} -p ${token}`
+    );
     await exec.exec(
       `docker build -t docker.pkg.github.com/${githubRepo}/${imageName}:${tag.slice(
         tag.length - 3
