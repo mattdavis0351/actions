@@ -28,6 +28,3 @@ async function run() {
 }
 
 run();
-
-// GITHUB_ACTOR	The name of the person or app that initiated the workflow. For example, octocat.
-// GITHUB_REPOSITORY	The owner and repository name. For example, octocat/Hello-World.
