@@ -4,10 +4,10 @@ import * as exec from "@actions/exec";
 async function run() {
   try {
     const token = core.getInput("repo-token");
-    const username = core.getInput("repo-owner");
+    const username = process.env.GITHUB_ACTOR;
     const imageName = core.getInput("image-name");
-    const githubRepo = core.getInput("repo");
-    const tag = core.getInput("tag");
+    const githubRepo = process.env.GITHUB_REPOSITORY;
+    const tag = process.env.GITHUB_SHA;
 
     await exec.exec(`docker login -u ${username} -p ${token}`);
     await exec.exec(

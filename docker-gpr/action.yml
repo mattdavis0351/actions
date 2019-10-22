@@ -2,20 +2,11 @@ name: Docker-GPR
 description: Build, Tag and Push images from a Dockerfile to the GPR
 
 inputs:
-  repo:
-    description: owner/repo information, use GITHUB_REPOSITORY
-    requried: true
   repo-token:
     description: Access token to use the api, use GITHUB_TOKEN silly, it's better
     required: true
-  repo-owner:
-    description: Username, better to use GITHUB_ACTORs
-    required: true
   image-name:
     description: name for Docker image-name
-    required: true
-  tag:
-    description: preferred tag for docker image, use GITHUB_SHA
     required: true
 
 runs:
