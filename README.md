@@ -15,10 +15,10 @@ This repository holds a collection of GitHub Actions I am currently working on a
 
 Each Action is located in a sub-directory in this repository.  Documentation for use can be found along side the source code for the Action.
 
-- [issue-maker](https://github.com/mattdavis0351/actions/tree/master/issue-maker) :wrench: 
-- [open-pull-request](https://github.com/mattdavis0351/actions/tree/master/open-pull-request) :clapper:
-- [tsc-compiler](https://github.com/mattdavis0351/actions/tree/master/tsc-compiler) :wrench: 
-- [docker-gpr](https://github.com/mattdavis0351/actions/tree/master/docker-gpr) :clapper:
+- [issue-maker](https://github.com/mattdavis0351/actions/tree/v1/issue-maker) :wrench: 
+- [open-pull-request](https://github.com/mattdavis0351/actions/tree/v1/open-pull-request) :clapper:
+- [tsc-compiler](https://github.com/mattdavis0351/actions/tree/v1/tsc-compiler) :wrench: 
+- [docker-gpr](https://github.com/mattdavis0351/actions/tree/v1/docker-gpr) :clapper:
 
 ## Helpful Links For Consuming These Actions
 
