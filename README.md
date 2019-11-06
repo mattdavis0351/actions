@@ -18,6 +18,7 @@ Each Action is located in a sub-directory in this repository.  Documentation for
 - [issue-maker](https://github.com/mattdavis0351/actions/tree/master/issue-maker) :wrench: 
 - [open-pull-request](https://github.com/mattdavis0351/actions/tree/master/open-pull-request) :clapper:
 - [tsc-compiler](https://github.com/mattdavis0351/actions/tree/master/tsc-compiler) :wrench: 
+- [docker-gpr](https://github.com/mattdavis0351/actions/tree/master/docker-gpr) :clapper:
 
 ## Helpful Links For Consuming These Actions
 
