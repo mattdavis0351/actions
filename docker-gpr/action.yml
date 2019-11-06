@@ -4,6 +4,7 @@ description: Build, Tag and Push images from a Dockerfile to the GPR
 inputs:
   repo-token:
     description: Access token to use the api, use GITHUB_TOKEN silly, it's better
+    default: No token was supplied... now you know why things broke!
     required: true
   image-name:
     description: name for Docker image-name
