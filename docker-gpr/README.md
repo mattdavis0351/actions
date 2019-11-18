@@ -12,6 +12,7 @@ A GitHub Action to upload Docker images to the GitHub Package Registry.
 |:---:|---|---|:---:|
 |`repo-token`|Access token allowing authentication to the GitHub API.  `GITHUB_TOKEN` is recommended.|No token was supplied... now you know why things broke!|:white_check_mark:|
 |`image-name`|Desired name for your Docker image||:white_check_mark:|
+|`dockerfile-location`|The location in the repo where the Dockerfile is|.||
 
 
 See the [action.yml](https://github.com/mattdavis0351/actions/blob/master/docker-gpr/action.yml) for further information about this Action.
@@ -32,6 +33,21 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           image-name: tic-tac-toe
 ```
+
+```yaml
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build, Tag, Push
+        uses: mattdavis0351/actions/docker-gpr@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: tic-tac-toe
+          dockerfile-location: dir/test
+```
+
+
 
 ---
 
