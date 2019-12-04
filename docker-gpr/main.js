@@ -4,9 +4,10 @@ const core = require("@actions/core");
 async function run() {
   try {
     const token = core.getInput("repo-token");
+    const dockerfileLocation = core.getInput("dockerfile-location");
     const username = process.env.GITHUB_ACTOR;
-    const imageName = core.getInput("image-name");
-    const githubRepo = process.env.GITHUB_REPOSITORY;
+    const imageName = core.getInput("image-name").toLowerCase();
+    const githubRepo = process.env.GITHUB_REPOSITORY.toLowerCase();
     const tag = process.env.GITHUB_SHA;
 
     await exec.exec(
@@ -15,7 +16,7 @@ async function run() {
     await exec.exec(
       `docker build -t docker.pkg.github.com/${githubRepo}/${imageName}:${tag.slice(
         tag.length - 3
-      )} .`
+      )} ${dockerfileLocation}`
     );
     await exec.exec(
       `docker push docker.pkg.github.com/${githubRepo}/${imageName}:${tag.slice(
