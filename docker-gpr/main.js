@@ -5,8 +5,8 @@ async function run() {
   try {
     const token = core.getInput("repo-token");
     const username = process.env.GITHUB_ACTOR;
-    const imageName = core.getInput("image-name");
-    const githubRepo = process.env.GITHUB_REPOSITORY;
+    const imageName = core.getInput("image-name").toLowerCase();
+    const githubRepo = process.env.GITHUB_REPOSITORY.toLowerCase();
     const tag = process.env.GITHUB_SHA;
 
     await exec.exec(
