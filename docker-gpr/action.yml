@@ -9,6 +9,10 @@ inputs:
   image-name:
     description: name for Docker image-name
     required: true
+  dockerfile-location:
+    description: Where in the repo the Dockerfile is located
+    default: .
+    required: false
 
 runs:
   using: "node12"
