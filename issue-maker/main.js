@@ -20,6 +20,7 @@ async function run() {
     const context = github.context;
 
     const { attributes, body } = fm(file);
+    console.log(`front-matter arrtibutes: ${attributes}`)
 
     const newIssue = await octokit.issues.create({
       owner: context.repo.owner,
