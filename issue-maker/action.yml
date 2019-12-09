@@ -1,18 +1,17 @@
-name: "Issue Maker"
-description: "creates an Issue"
-author: "mattdavis0351"
+name: issue-maker
+description: Open issue in repositories based on issue templates
 
 inputs:
-  issueTitle:
-    description: "Issues will be created with this title"
-    default: "created by the Issue Maker Action"
-  apiToken:
-    description: "Token used to authenticate with the API"
-    default: "failed to supply token... things will break... enjoy"
-  issueBody:
-    description: "This shows as the issue body"
-    default: "# Issue Created By issue-maker Action"
+  repo-token:
+    description: Access token to use the api
+    required: true
+  filename:
+    description: Path to issue template
+    required: true
+  assignees:
+    description: Who do you want the issue assigned to
+    required: false
 
 runs:
   using: "node12"
-  main: "lib/main.js"
+  main: main.js
