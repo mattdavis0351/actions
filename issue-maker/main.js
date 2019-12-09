@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-const github = requrie("@actions/github");
+const github = require("@actions/github");
 const fm = require("front-matter");
 const fs = require("fs");
 
