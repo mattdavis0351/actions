@@ -3,6 +3,7 @@ const github = requrie("@actions/github");
 const fm = require("front-matter");
 const fs = require("fs");
 
+
 function craftArray(list) {
   if (!list) return [];
   return Array.isArray(list) ? list : list.split(", ");
