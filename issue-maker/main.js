@@ -22,7 +22,7 @@ async function run() {
 
     const { attributes, body } = fm(file);
     console.log(`front-matter arrtibutes: ${attributes}`)
-
+    core.info(attributes)
     const newIssue = await octokit.issues.create({
       owner: context.repo.owner,
       repo: context.repo.repo,
@@ -32,7 +32,7 @@ async function run() {
       labels: craftArray(attributes.labels)
     });
   } catch (error) {
-    core.debug(error.message);
+    core.setFailed(error.message);
   }
 }
 
