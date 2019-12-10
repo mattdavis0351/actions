@@ -27,13 +27,13 @@ async function run() {
     // const context = github.context;
 
     const { attributes, body } = fm(file);
-    console.log(`front-matter arrtibutes: ${attributes}`);
+    console.log(`front-matter arrtibutes: ${JSON.stringify(attributes)}`);
 
     const templated = {
       body: env.renderString(body, templateVariables),
       title: env.renderString(attributes.title, templateVariables)
     };
-    core.info(attributes);
+    console.log(`templated: ${JSON.stringify(templated)}`);
     const newIssue = await octokit.issues.create({
       ...github.context.repo,
       ...templated,
