@@ -23,6 +23,8 @@ async function run() {
       ...github.context,
       date: Date.now()
     };
+
+    core.info(JSON.stringify(templateVariables));
     const octokit = new github.GitHub(token);
     // const context = github.context;
 
