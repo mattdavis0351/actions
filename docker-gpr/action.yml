@@ -13,6 +13,10 @@ inputs:
     description: Where in the repo the Dockerfile is located
     default: .
     required: false
+    
+outputs:
+  imageUrl:
+    description: Fully constructed URL to image for use when deploying
 
 runs:
   using: "node12"

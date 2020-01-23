@@ -9,20 +9,19 @@ async function run() {
     const imageName = core.getInput("image-name").toLowerCase();
     const githubRepo = process.env.GITHUB_REPOSITORY.toLowerCase();
     const tag = process.env.GITHUB_SHA;
-
+    const fullImageReference = `docker.pkg.github.com/${githubRepo}/${imageName}:${tag}`
+    
     await exec.exec(
       `docker login docker.pkg.github.com -u ${username} -p ${token}`
     );
     await exec.exec(
-      `docker build -t docker.pkg.github.com/${githubRepo}/${imageName}:${tag.slice(
-        tag.length - 3
-      )} ${dockerfileLocation}`
+      `docker build -t ${fullImageReference} ${dockerfileLocation}`
     );
     await exec.exec(
-      `docker push docker.pkg.github.com/${githubRepo}/${imageName}:${tag.slice(
-        tag.length - 3
-      )}`
+      `docker push ${fullImageReference}`
     );
+    
+    core.setOutput('imageUrl', fullImageReference)
   } catch (error) {
     console.error(error);
   }
