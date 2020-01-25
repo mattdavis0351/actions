@@ -26,7 +26,7 @@ async function run() {
   try {
     await exec.exec(`docker push ${fullImageReference}`);
   } catch (err) {
-    core.setFailed(`action failed with error: ${err}`);
+    core.setFailed(`Review the logs above, most likely you are using a package name associated with a different repository.  Rename your Image to fix.`);
   }
   core.setOutput("imageUrl", fullImageReference);
 }
