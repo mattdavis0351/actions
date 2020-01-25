@@ -27,6 +27,7 @@ async function run() {
     await exec.exec(`docker push ${fullImageReference}`);
   } catch (err) {
     core.setFailed(`Review the logs above, most likely you are using a package name associated with a different repository.  Rename your Image to fix.`);
+    core.debug('https://help.github.com/en/github/managing-packages-with-github-packages/about-github-packages#managing-packages for more information');
   }
   core.setOutput("imageUrl", fullImageReference);
 }
