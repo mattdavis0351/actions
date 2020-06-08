@@ -7,7 +7,7 @@ async function run() {
   const username = process.env.GITHUB_ACTOR;
   const imageName = core.getInput("image-name").toLowerCase();
   const githubRepo = process.env.GITHUB_REPOSITORY.toLowerCase();
-  const tag = process.env.GITHUB_SHA;
+  const tag = core.getInput("tag").toLowerCase();
   const fullImageReference = `docker.pkg.github.com/${githubRepo}/${imageName}:${tag}`;
   try {
     await exec.exec(
