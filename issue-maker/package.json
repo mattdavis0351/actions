@@ -17,7 +17,7 @@
   "author": "mattdavis0351",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.0",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^2.0.0",
     "front-matter": "^3.0.2",
     "nunjucks": "^3.2.0",
